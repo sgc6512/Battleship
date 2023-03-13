@@ -5,9 +5,10 @@ namespace Battleship.Test
         [Fact]
         public void TestPlay()
         {
-            var ships = new[] { "3:2,3:5" };
-            var guesses = new[] { "7:0", "3:3" };
-            Game.Play(ships, guesses).Should().Be(0);
+            List<string> ships = new List<string> { "3:2,3:5" };
+            List<string> guesses = new List<string> { "7:0", "3:3" };
+            bool[,] board = Game.CreateBoard(ships);
+            Game.Play(ships, guesses, board).Should().Be(0);
         }
     }
 }
